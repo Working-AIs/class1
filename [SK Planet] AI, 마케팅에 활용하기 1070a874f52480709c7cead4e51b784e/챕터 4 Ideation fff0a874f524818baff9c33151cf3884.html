@@ -1,0 +1,690 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>챕터 4. Ideation.  </title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 237, 214, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 237, 214, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(249, 228, 188, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="fff0a874-f524-818b-aff9-c33151cf3884" class="page sans"><header><h1 class="page-title">챕터 4. Ideation.  </h1><p class="page-description"></p></header><div class="page-body"><p id="fff0a874-f524-81a2-9031-e31d04803107" class="">
+</p><h2 id="fff0a874-f524-813f-a063-e4e23c7b69dd" class="">1. 개요 </h2><hr id="fff0a874-f524-81ad-a825-d65d8c5bf4ce"/><ul id="fff0a874-f524-8171-8e83-d0a7f652508b" class="block-color-gray_background bulleted-list"><li style="list-style-type:disc">기획안 및 보고서 작성의 단계. <ul id="fff0a874-f524-8186-a844-d854b900092e" class="bulleted-list"><li style="list-style-type:circle">아이디어 발상 : 아이디어 발상 및 정보 수집.  </li></ul><ul id="fff0a874-f524-81b9-a16a-c1cb74950cdd" class="bulleted-list"><li style="list-style-type:circle">구조 설계 : 설득력 있는 문서 및 발표를 위한 구조 잡기.  </li></ul><ul id="fff0a874-f524-8136-bd99-eb2ffe707742" class="bulleted-list"><li style="list-style-type:circle">문서 작업 : 필요에 따라 워드, 파워포인트 등의 형태로 작성. </li></ul></li></ul><p id="fff0a874-f524-8173-8438-cd42f05628d6" class="">
+</p><h2 id="fff0a874-f524-811d-b659-c713cdc03805" class="">2. AI를 활용한 1 페이지 기획안 실습   </h2><hr id="fff0a874-f524-8108-996b-ed9ced0dad55"/><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Step I. AI를 활용한 아이디어 발상 </summary><div class="indented"><p id="fff0a874-f524-8117-b826-d9424fd9ed25" class="block-color-gray_background">길고 긴 회의와 엄청난 자료 조사를 AI와 함께 진행하는 형태로 바꾸기. </p><ol type="1" id="fff0a874-f524-816f-b857-dc87824ca2c1" class="numbered-list" start="1"><li><strong>챗GPT에게 아이디어 요청하기.  </strong><ul id="fff0a874-f524-8134-b5d6-d59415040637" class="bulleted-list"><li style="list-style-type:disc">챗GPT가 아이데이션에 함께 참여하는 것을 요청할 경우 어떤 역할을 맡을지에 따라 새로운 아이디어를 제시할 수 있습니다. (마케터, 크리에이티브디렉터, 디자이너 등)  </li></ul><ul id="fff0a874-f524-81b6-b073-cc2b8b05eafb" class="block-color-yellow_background bulleted-list"><li style="list-style-type:disc">프롬프트 예시 : <br/>우리 회사는 커뮤니티형 마일리지 서비스를 새롭게 출시하고 타깃 고객인 잘파 세대를 모집을 위한 프로모션을 기획해야 해. 너 이 서비스의 ‘<br/><strong>마케터’</strong>로서 이 커뮤니티에 회원을 모집할 수 있는 프로모션 아이디어를 제시해줘. </li></ul><ul id="fff0a874-f524-8114-a5dd-dd308fdb3b3b" class="bulleted-list"><li style="list-style-type:disc">챗GPT에 아이디어를 요청 시 가급적 구체적인 내용 필요. (예. 마케팅 아이디어가 필요해 X, 마일리지 서비스에 관심이 있는 잘파 세대들을 모집할 수 있는 프로모션 아이디어가 필요해 O)  </li></ul><ul id="fff0a874-f524-818b-b837-e21c99b8b543" class="bulleted-list"><li style="list-style-type:disc">위와 같이 아이디어를 만든 뒤 양적(추가적인 아이디어 요청), 질적(더 세부적인 질문) 발전을 통해 필요한 아이디어를 획득. </li></ul></li></ol><p id="fff0a874-f524-81f9-b2d9-d6bd40369a01" class="">
+</p><ol type="1" id="fff0a874-f524-817f-ab34-e350fe92c572" class="numbered-list" start="2"><li><strong>고객 페르소나 설정</strong><ul id="10b0a874-f524-80ae-bf67-c1597e4aea72" class="block-color-yellow_background bulleted-list"><li style="list-style-type:disc">프롬프트 에시 : <p id="10b0a874-f524-80ad-9ae1-dc05de9bd8f3" class="">우리 이벤트에 대한 페르소나를 규정해줘. </p><ul id="5e10c7f0-6ef7-4e87-ab20-a0f58a61e376" class="bulleted-list"><li style="list-style-type:circle">인구통계학적 정보 : 연령, 성별,, 소득, 교육 수준 등.</li></ul><ul id="10b0a874-f524-80fe-b40d-d977a704cece" class="bulleted-list"><li style="list-style-type:circle">심리학적 정보 : 가치관, 관심사, 라이프스타일 등</li></ul><ul id="e6a0915d-e43b-48da-bd48-ee6a1626f97c" class="bulleted-list"><li style="list-style-type:circle">커뮤니케이션 선호도 : 페르소나가 정보를 수신하고 브랜드를 인식하는 방식.</li></ul><ul id="10b0a874-f524-8095-a5f5-c471656e0b7d" class="bulleted-list"><li style="list-style-type:circle">구매 습관 : 페르소나가 구매 결정을 내리는 방식.</li></ul><ul id="189c8402-58ff-4d4d-a554-ed13d8abca81" class="bulleted-list"><li style="list-style-type:circle">브랜드 태도 : 페르소나가 브랜드와 경쟁 업체를 어떻게 인식하는가에 대한 정보.</li></ul></li></ul><ul id="10b0a874-f524-80ba-8337-d5bff7312606" class="bulleted-list"><li style="list-style-type:disc">페르소나를 만든 후 구체적인 캐릭터를 설정한 뒤 추가적인 아이데이션에 활용할 수 있습니다. </li></ul><p id="10b0a874-f524-8058-8455-ef5705b5351a" class="">
+</p></li></ol><ol type="1" id="fff0a874-f524-81ab-8a1b-fc5ec771bb62" class="numbered-list" start="3"><li><strong>마인드맵 방식 (윔시컬) 활용</strong><ul id="fff0a874-f524-81c4-9123-f59c76df5a34" class="bulleted-list"><li style="list-style-type:disc">아이데이션 내용을 윔시컬을 통해 정리하거나 추가적인 아이디어를 요청할 수 있습니다.  <figure id="fff0a874-f524-8103-8276-d0ae2abfe7b6"><a href="https://chatgpt.com/g/g-vI2kaiM9N-whimsical-diagrams" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">ChatGPT</div><div class="bookmark-description">ChatGPT helps you get answers, find inspiration and be more productive. It is free to use and easy to try. Just ask and ChatGPT can help with writing, learning, brainstorming and more.</div></div><div class="bookmark-href"><img src="https://cdn.oaistatic.com/_next/static/media/apple-touch-icon.82af6fe1.png" class="icon bookmark-icon"/>https://chatgpt.com/g/g-vI2kaiM9N-whimsical-diagrams</div></div><img src="https://cdn.oaistatic.com/_next/static/media/chatgpt-share-og.49cbbffe.png" class="bookmark-image"/></a></figure></li></ul><ul id="fff0a874-f524-819e-969b-ceee10392a7c" class="block-color-yellow_background bulleted-list"><li style="list-style-type:disc">활용 : <ul id="fff0a874-f524-8142-9f97-ff6518b4af58" class="bulleted-list"><li style="list-style-type:circle">필요한 아이디어의 일반적인 형태를 요청.<p id="fff0a874-f524-81a2-a18d-da28e3326487" class="">예시) 온라인 서비스의 회원 모집에 활용할 수 있는 프로모션의 종류를 마인드맵으로 만들어줘.</p></li></ul><ul id="fff0a874-f524-81dc-ab28-ceae619e87bb" class="bulleted-list"><li style="list-style-type:circle">작성한 아이디어 리스트나 수집한 자료(벤치마킹 등)를 유형별로 마인드맵화 요청 가능 </li></ul></li></ul></li></ol><p id="10b0a874-f524-8074-bd86-eaab529846b2" class=""><strong> </strong></p></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Step II. AI와 함께 기획의 구조 설계 </summary><div class="indented"><ul id="fff0a874-f524-8160-b554-fd6a6c43c9f6" class="bulleted-list"><li style="list-style-type:disc">문서 목적에 따라 AI에게 문서의 구조를 요청. </li></ul><ul id="fff0a874-f524-8198-8906-e34f3fceb461" class="bulleted-list"><li style="list-style-type:disc">결정된 아이디어와 내용에 따라 문서의 기본 구조에 맞게 정리. </li></ul><ul id="fff0a874-f524-81b5-8879-c28878d48e35" class="bulleted-list"><li style="list-style-type:disc">구조를 제대로 설계하면 실제 문서 작성은 어렵지 않기 때문에 중요한 단계. </li></ul><ul id="3511185a-e811-404a-bd54-95060a0609d7" class="bulleted-list"><li style="list-style-type:disc">구조에 해당하는 요소에 대해 각각 챗GPT와 아이데이션을 합니다. <ul id="4e6bf888-90fb-47cf-9340-8cbd3008d601" class="bulleted-list"><li style="list-style-type:circle">[디자이너로서] 메인 이미지는 어떤 형태가 좋을지… </li></ul><ul id="10b0a874-f524-808c-8d35-e77a2df89af2" class="bulleted-list"><li style="list-style-type:circle">[카피라이터로서] 이벤트 참여를 높일 수 있는 카피를 만들기. </li></ul><ul id="10b0a874-f524-8083-9dfb-c1e9a0efa306" class="bulleted-list"><li style="list-style-type:circle">[마케터로서] AARRR에 맞는 유입 구조와 고객 Benefit 설계. </li></ul></li></ul><ul id="fff0a874-f524-8172-9cfc-fe30ef5d8047" class="block-color-yellow_background toggle"><li><details open=""><summary>프로모션 구조 : 아래의 내용을 참고하여 프로모션 기획안을 작성합니다. </summary><ul id="10b0a874-f524-80e7-bf23-cabadce5a7a6" class="bulleted-list"><li style="list-style-type:disc"><strong>이벤트 개요</strong><ul id="11e19fff-0044-4c0a-9db7-88568114677e" class="bulleted-list"><li style="list-style-type:circle">이벤트의 목적과 핵심 개념을 소개하는 부분입니다. 이 부분에서는 주요 메시지나 주제를 명확하게 전달합니다.</li></ul></li></ul><ul id="10b0a874-f524-808b-ad1f-ebfa0158386b" class="bulleted-list"><li style="list-style-type:disc"><strong>시나리오 및 기획안</strong><ul id="10b0a874-f524-8062-b8e1-cb2166735f37" class="bulleted-list"><li style="list-style-type:circle">이벤트 시나리오에 대한 구체적인 계획과 전개 방식이 설명됩니다. 이 섹션에서는 다양한 참여 경로와 활동이 나열되고, 목표 달성 방법을 제시합니다.</li></ul></li></ul><ul id="10b0a874-f524-8047-9e25-fefd50ae8557" class="bulleted-list"><li style="list-style-type:disc"><strong>고객 경험</strong><ul id="10b0a874-f524-80cd-8610-d172a030c774" class="bulleted-list"><li style="list-style-type:circle">참여자에게 제공될 고객 경험에 대한 설명이 포함됩니다. 여기에는 고객이 어떤 방식으로 이벤트에 참여하고 상호작용할 수 있는지에 대한 정보가 제공됩니다.</li></ul></li></ul><ul id="39b869d4-b614-41a3-ac58-5aa9afc67060" class="bulleted-list"><li style="list-style-type:disc"><strong>경품 및 혜택</strong><ul id="10b0a874-f524-804e-8596-fd40d1d47a95" class="bulleted-list"><li style="list-style-type:circle">이벤트 참여 시 제공되는 경품과 혜택을 구체적으로 설명합니다. 각 경품의 단가와 수량, 총 금액 등이 명시됩니다.</li></ul></li></ul><ul id="10b0a874-f524-80bd-beef-efce268e611d" class="bulleted-list"><li style="list-style-type:disc"><strong>프로모션 일정</strong><ul id="10b0a874-f524-8013-933a-f72e64d19d4a" class="bulleted-list"><li style="list-style-type:circle">프로모션 및 이벤트가 진행되는 구체적인 일정을 포함하며, 각 날짜별로 해야 할 작업과 마일스톤이 나열됩니다.</li></ul></li></ul><ul id="684a66d6-77ec-4e66-a4c6-75b87e66a849" class="bulleted-list"><li style="list-style-type:disc"><strong>예산 계획</strong><ul id="10b0a874-f524-8066-a02e-e7944fd142b4" class="bulleted-list"><li style="list-style-type:circle">경품 구매 및 기타 비용에 대한 예산이 제시됩니다. 각 항목별로 단가, 수량, 총 비용이 명확히 구분되어 있습니다.</li></ul></li></ul></details></li></ul><ul id="fff0a874-f524-8184-bd78-e0622c5e6a80" class="block-color-blue_background bulleted-list"><li style="list-style-type:disc"><strong>최프로의 Tip. </strong><ul id="fff0a874-f524-81de-8459-dc47b6058955" class="bulleted-list"><li style="list-style-type:circle">최종적으로 문서화하기 전 노션 및 메모장 등에 내 생각대로 정리하는 습관을 들이는 것이 좋습니다. 약간의 수정, 가감 등을 요청하는 것 보다 내가 직접 편집하는 것이 더 시간을 절약할 수 있습니다. </li></ul></li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Step III. 문서 작성  </summary><div class="indented"><ul id="fff0a874-f524-8118-8aaf-c0e947e05fdf" class="bulleted-list"><li style="list-style-type:disc">실제 문서를 작성합니다. 기본적인 문서의 구조와 구체적인 아이디어 정리까지 되었다면 문서 작성까지 요청할 수 있습니다. <ul id="fff0a874-f524-81e6-ad2e-e7934cad4f28" class="block-color-yellow_background bulleted-list"><li style="list-style-type:circle">프롬프트 예시 <p id="fff0a874-f524-8114-8990-f16936e9ee15" class="">위에서 정리한 프로모션 아이디어를 ‘프로모션 기획안’ 형식에 맞춰 작성해줘.  (유료 버전의 경우 워드 파일로 다운로드 가능) </p></li></ul></li></ul><ul id="fff0a874-f524-8188-b065-fa0de97419fb" class="bulleted-list"><li style="list-style-type:disc">파워포인트 형태의 문서도 만들 수 있지만 이 부분은 다음 시간에 다시 다룹니다.  </li></ul></div></details><p id="fff0a874-f524-81c4-8b78-f89bd6ba59d4" class="">
+</p><h2 id="fff0a874-f524-8140-bef6-d2c794455b9f" class="">3. 이미지 생성</h2><hr id="10b0a874-f524-80bf-bfc2-db7aa1820b0e"/><ul id="10b0a874-f524-8030-878d-fad022d66169" class="bulleted-list"><li style="list-style-type:disc">챗GPT를 활용해서 이미지 생성을 위한 프롬프트를 만들 수 있습니다. <ul id="10b0a874-f524-8062-95fd-f1c6a4081402" class="bulleted-list"><li style="list-style-type:circle">기본적으로 누가, 어디에서, 무엇을, 어떻게에 대한 내용을 중심으로 프롬프트를 요청합니다. </li></ul><ul id="10b0a874-f524-806c-ba3f-d118da94b263" class="block-color-yellow_background bulleted-list"><li style="list-style-type:circle">예시 : 20대 한국인 여성이 카페에서 스마트폰을 보고 있는 이미지를 생성할 수 있는 영어 프롬프트를 만들어줘. </li></ul></li></ul><ul id="10b0a874-f524-8074-8d50-c5bf2e8f81e4" class="bulleted-list"><li style="list-style-type:disc">Imagen-3 : 무료 이미지 생성 툴. <figure id="10b0a874-f524-8039-8cfe-d80bf9243a55"><a href="https://aitestkitchen.withgoogle.com/ko/tools/image-fx" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">ImageFX</div></div><div class="bookmark-href"><img src="https://aitestkitchen.withgoogle.com/icons/favicon/favicon.svg" class="icon bookmark-icon"/>https://aitestkitchen.withgoogle.com/ko/tools/image-fx</div></div></a></figure></li></ul><ul id="10b0a874-f524-80a1-a9c2-f64aa64a09e3" class="bulleted-list"><li style="list-style-type:disc">runway : 이미지에 영상 효과를 넣을 수 있는 도구 (5~10초) <figure id="8fd28375-8936-4147-9763-44193960beeb"><a href="https://runwayml.com/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Runway | Tools for human imagination.</div><div class="bookmark-description">Runway is an applied AI research company shaping the next era of art, entertainment and human creativity.</div></div><div class="bookmark-href"><img src="https://runwayml.com/icon.png?354f8c2b5139d556" class="icon bookmark-icon"/>https://runwayml.com/</div></div><img src="https://runwayml.com/opengraph-image.jpg?974e5ae6d3d11787" class="bookmark-image"/></a></figure></li></ul><ul id="10b0a874-f524-803c-9bc4-e2945a1c968e" class="bulleted-list"><li style="list-style-type:disc">kling : 런웨이와 마찬가지로 이미지를 영상화하는 도구 <figure id="10b0a874-f524-80bd-aca5-cd6f5e85dcee"><a href="https://klingai.com/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">KLING AI</div><div class="bookmark-description">KLING AI, tools for creating imaginative images and videos, based on state-of-art generative AI methods.</div></div><div class="bookmark-href"><img src="https://klingai.com/logo-180x180.png" class="icon bookmark-icon"/>https://klingai.com/</div></div></a></figure></li></ul><p id="10b0a874-f524-801c-aece-e8cb91211358" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
