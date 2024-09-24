@@ -1,0 +1,693 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>챕터 3. Research</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 237, 214, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 237, 214, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(249, 228, 188, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="fff0a874-f524-8185-82c4-f0e0c604a0ef" class="page sans"><header><h1 class="page-title">챕터 3. Research</h1><p class="page-description"></p></header><div class="page-body"><p id="fff0a874-f524-8136-88be-c23bcd00ec7f" class="">
+</p><h2 id="fff0a874-f524-81a6-b91f-c98c88d52896" class="">1. 개요 </h2><hr id="fff0a874-f524-8153-b60e-e6b572d5eb13"/><ul id="fff0a874-f524-812a-b33f-cfb95cb9e864" class="block-color-gray_background bulleted-list"><li style="list-style-type:disc">AI를 활용한 자료 수집 <ol type="1" id="fff0a874-f524-81df-a224-c2638079455c" class="numbered-list" start="1"><li>챗GPT나 퍼플렉시티에서 직접 수집 요청하기. </li></ol><ol type="1" id="fff0a874-f524-81d7-a2c9-d6d743624f99" class="numbered-list" start="2"><li>Youtube나 웹사이트, PDF 자료의 요약 </li></ol><ol type="1" id="fff0a874-f524-81a8-be35-dd2960ee7916" class="numbered-list" start="3"><li>논문 정보를 통한 자료 수집. </li></ol><ol type="1" id="fff0a874-f524-81b6-8402-c28a24131c8d" class="numbered-list" start="4"><li>Gazet과 같은 정보 수집 AI를 활용 </li></ol></li></ul><p id="fff0a874-f524-81b7-8d14-f76843725417" class="">
+</p><h2 id="fff0a874-f524-81b9-9d92-e8a7859bdfc1" class="">2. 개요 </h2><hr id="fff0a874-f524-8149-927a-df9718e5ab2e"/><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">1. 이제 구글링 대신 퍼플렉시티 . </summary><div class="indented"><figure id="fff0a874-f524-8108-9ca9-e341d711e1be"><a href="https://www.perplexity.ai/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Perplexity</div><div class="bookmark-description">Perplexity is a free AI-powered answer engine that provides accurate, trusted, and real-time answers to any question.</div></div><div class="bookmark-href"><img src="https://www.perplexity.ai/favicon.ico" class="icon bookmark-icon"/>https://www.perplexity.ai/</div></div><img src="https://ppl-ai-public.s3.amazonaws.com/static/img/pplx-default-preview.png" class="bookmark-image"/></a></figure><ul id="fff0a874-f524-81d5-8a16-d83617f6596a" class="bulleted-list"><li style="list-style-type:disc">검색을 기반으로 굉장히 복합적인 추론을 해서 깊이 있는 답변을 해줄 수 있음. (무료로 사용) 출처를 제공하고 다시 추가적인 검색을 제공하는 (꼬리에 꼬리를 무는) 방식의 검색을 할 수 있음. <ul id="fff0a874-f524-81c1-b1b4-f194f895adc5" class="block-color-gray_background bulleted-list"><li style="list-style-type:circle">활용 예시. 챗GPT와 퍼플렉시티 사이트를 비교해줘.</li></ul></li></ul><ul id="fff0a874-f524-812b-bc7d-db0ee119bbdd" class="bulleted-list"><li style="list-style-type:disc">챗GPT의 맞춤설정과 마찬가지로 나의 소개를 통해 맞춤화된 답변 가능. </li></ul><ul id="fff0a874-f524-818f-a8f2-c4939afb1265" class="bulleted-list"><li style="list-style-type:disc">유료 기능이 있지지만 무료 사용자의 경우 유료에 해당하는 프로 서치를 하루 5개 이용. </li></ul><ul id="10a0a874-f524-8099-bb27-c469b3bf5f71" class="bulleted-list"><li style="list-style-type:disc">회사, 또는 우리 회사의 상품이나 경쟁사 등에 대한 검색을 직접 요청해 보세요. </li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">2. 영상 및 웹사이트, PDF 등을 요약하는 YouTube Summary .  </summary><div class="indented"><ul id="fff0a874-f524-8161-ad41-f4c63ec1bf35" class="bulleted-list"><li style="list-style-type:disc">유튜브 영상 이제 직접 보고 정리할 필요가 없습니다.  <ul id="fff0a874-f524-8164-86b2-ea10af181e6b" class="bulleted-list"><li style="list-style-type:circle">크롬 확장 프로그램 Youtube Summary with ChatGPT &amp; Claude 설치하기. <figure id="fff0a874-f524-812f-b48c-e51b486c192a"><a href="https://chromewebstore.google.com/detail/youtube-summary-with-chat/nmmicjeknamkfloonkhhcjmomieiodli?utm_source=ext_app_menu" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">YouTube Summary with ChatGPT &amp; Claude - Chrome Web Store</div><div class="bookmark-description">Summarize YouTube videos, web articles, and PDFs to save time, powered by ChatGPT (OpenAI) and Claude (Anthropic).</div></div><div class="bookmark-href"><img src="https://ssl.gstatic.com/chrome/webstore/images/icon_144px.png" class="icon bookmark-icon"/>https://chromewebstore.google.com/detail/youtube-summary-with-chat/nmmicjeknamkfloonkhhcjmomieiodli?utm_source=ext_app_menu</div></div><img src="https://lh3.googleusercontent.com/v87Ne-944ya_q_QY0aymwZA8VybkOc3eQQhL4942ewOhK3Y7qHQ2Yop7l5mfoNThWNz23O01fFxNM_etxRA5VUAsWg0=s128-rj-sc0x00ffffff" class="bookmark-image"/></a></figure><ul id="fff0a874-f524-81f1-a988-e87171fc1e87" class="bulleted-list"><li style="list-style-type:square">설치 후에는 유튜브 외에 일반 사이트에서도 요약이 가능합니다. </li></ul><ul id="10a0a874-f524-8069-9a89-df8cc227027e" class="block-color-yellow_background bulleted-list"><li style="list-style-type:square">실습 : 레퍼런스를 통한 홍보 영상 시나리오 만들기. <ul id="10a0a874-f524-80c2-ba82-da4034170ed8" class="bulleted-list"><li style="list-style-type:disc">참고 영상 <figure id="10a0a874-f524-8059-be7e-eb24fe954fcb"><a href="https://youtu.be/-fvEJgCNURQ" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">현대모비스 기업홍보영상</div><div class="bookmark-description">[기업홍보영상] 현대모비스 홍보영상 
+클라이언트: 현대모비스
+제작: 시네마틱퍼슨 http://www.cinematicperson.com
+
+#홍보영상 #기업홍보영상 #회사소개영상</div></div><div class="bookmark-href"><img src="https://www.youtube.com/s/desktop/2fcf6eb0/img/favicon_144x144.png" class="icon bookmark-icon"/>https://youtu.be/-fvEJgCNURQ</div></div><img src="https://i.ytimg.com/vi/-fvEJgCNURQ/maxresdefault.jpg" class="bookmark-image"/></a></figure></li></ul><ul id="10a0a874-f524-80b6-9856-fd81e409147a" class="bulleted-list"><li style="list-style-type:disc">프롬프트 1 <br/><br/><em>아래 내용은 현대모비스라는 회사의 홍보 영상 내용이야. 이 영상의 구성을 토대로 우리 회사의 홍보 영상 시나리오를 만들었으면 해. 먼저 이 영상 스크립트 내용을 분석해줘.</em></li></ul><ul id="10a0a874-f524-80bd-9e38-f26cb9131c52" class="bulleted-list"><li style="list-style-type:disc">프롬프트 2 <br/><br/><em>위의 분석 내용을 토대로 SK플래닛의 홍보 영상 시나리오를 만들어줘. (PDF 소개 자료 등 함께 입력) </em></li></ul><ul id="10a0a874-f524-80e2-a2cb-c56cd682b30f" class="bulleted-list"><li style="list-style-type:disc">이후 vrew나 hedra 같은 사이트에서 이 내용을 토대로 바로 영상 제작 가능. <ul id="10a0a874-f524-800d-90d9-c9fec33dd1c1" class="bulleted-list"><li style="list-style-type:circle">vrew : AI 영상 제작 서비스 <figure id="10a0a874-f524-80e2-a190-c3cf79da73d8"><a href="https://vrew.ai/ko/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Vrew, 문서 편집처럼 쉽고 빠른 AI 영상 편집</div><div class="bookmark-description">AI를 활용한 가장 빠르고 효율적인 영상 편집을 경험해보세요! 키워드만 입력하면 끝! AI가 자동으로 영상을 만들어 드립니다. 음성 인식 자동 자막, 빠른 컷 편집, 200종 이상의 AI 목소리, 다양한 무료 소스까지 한 곳에서 Vrew가 도와드려요. 유튜브 부터 숏폼 영상, 기업 홍보, 교육, 안내용 영상까지 쉽고 간편하게 만들 수 있어요. 영상 편집, 더 이상 어렵게 생각 말고 Vrew로 시작해 보세요!</div></div><div class="bookmark-href"><img src="https://vrew.ai/favicon.ico?v=20201230" class="icon bookmark-icon"/>https://vrew.ai/ko/</div></div><img src="https://vrew.ai/thumbnail.png?v=20230128" class="bookmark-image"/></a></figure></li></ul><ul id="10b0a874-f524-80ec-91af-f2d9f7673433" class="bulleted-list"><li style="list-style-type:circle">elevenlabs : 텍스트를 음성으로 변환하는 서비스. <figure id="10b0a874-f524-80ca-b4bc-cbb0a008f6c8"><a href="https://elevenlabs.io/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">ElevenLabs: Free Text to Speech &amp; AI Voice Generator | ElevenLabs</div><div class="bookmark-description">Create the most realistic speech with our AI audio in 1000s of voices and 32 languages. Pioneering research in Text to Speech and AI Voice Generation</div></div><div class="bookmark-href"><img src="https://elevenlabs.io/favicon.ico" class="icon bookmark-icon"/>https://elevenlabs.io/</div></div><img src="https://elevenlabs.io/cover.png" class="bookmark-image"/></a></figure></li></ul><ul id="10a0a874-f524-8095-91f8-e6fb7aba764a" class="bulleted-list"><li style="list-style-type:circle">hedra : 이미지와 보이스를 결합해 영상으로 만드는 서비스 <figure id="10b0a874-f524-801e-bd85-dbd475ebb912"><a href="https://www.hedra.com/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Hedra</div><div class="bookmark-description">Video creation for everyone.</div></div><div class="bookmark-href"><img src="https://www.hedra.com/apple-touch-icon.png" class="icon bookmark-icon"/>https://www.hedra.com/</div></div><img src="https://www.hedra.com/og.png" class="bookmark-image"/></a></figure></li></ul><ul id="10b0a874-f524-8047-a99f-de2821208c11" class="bulleted-list"><li style="list-style-type:circle">heygen : 영상을 다양한 언어로 바꿔주는 서비스 <figure id="10b0a874-f524-803a-b6e9-de73c6fb5966"><a href="https://heygen.ai/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">HeyGen - AI Video Generator</div><div class="bookmark-description">HeyGen is an innovative video platform that harnesses the power of generative AI to streamline your video creation process.</div></div><div class="bookmark-href"><img src="https://cdn.prod.website-files.com/66a9edf7bd0139f5207e19be/66e198ee79239006765457b4_HeyGenFavicon-1%20(1)%201.svg" class="icon bookmark-icon"/>https://heygen.ai/</div></div><img src="https://cdn.prod.website-files.com/66a9edf7bd0139f5207e19be/66ea71d3cc640fa4303e13c3_Meta-Image%20350x184.png" class="bookmark-image"/></a></figure></li></ul></li></ul></li></ul></li></ul></li></ul><ul id="10b0a874-f524-804e-8c8b-d9621df115e4" class="bulleted-list"><li style="list-style-type:disc">Youtube Summary로 PDF 요약도 할 수 있지만 활성화 되지 않는 경우 챗PDF와 같은 서비스를 사용할 수 있습니다. <figure id="10b0a874-f524-8000-ab03-eff5b5ae2461"><a href="https://www.chatpdf.com/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">ChatPDF - Chat with any PDF!</div><div class="bookmark-description">ChatPDF is the fast and easy way to chat with any PDF, free and without sign-in. Talk to books, research papers, manuals, essays, legal contracts, whatever you have! The intelligence revolution is here, ChatGPT was just the beginning!</div></div><div class="bookmark-href"><img src="https://www.chatpdf.com/favicon.ico" class="icon bookmark-icon"/>https://www.chatpdf.com/</div></div><img src="https://www.chatpdf.com/lord-of-the-flies.jpg" class="bookmark-image"/></a></figure></li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">3. 논문 정보 수집 </summary><div class="indented"><ul id="fff0a874-f524-81c8-b09f-c7c3a896306f" class="toggle"><li><details open=""><summary>Consensus </summary><ul id="fff0a874-f524-81c8-a650-dfeed2a5985b" class="bulleted-list"><li style="list-style-type:disc">GPT 탐색하기에서 통해 Consensus GPT를 엽니다. <figure id="10b0a874-f524-80c4-9c82-d3c2c204ed33"><a href="https://chatgpt.com/g/g-bo0FiWLY7-consensus" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">ChatGPT - Consensus</div><div class="bookmark-description">Ask the research, chat directly with the world&#x27;s scientific literature. Search references, get simple explanations, write articles backed by academic papers.</div></div><div class="bookmark-href"><img src="https://cdn.oaistatic.com/assets/apple-touch-icon-mz9nytnj.webp" class="icon bookmark-icon"/>https://chatgpt.com/g/g-bo0FiWLY7-consensus</div></div><img src="https://files.oaiusercontent.com/file-IheK6ysqIDeahH0p0fJRGsDo?se=2124-04-28T18%3A17%3A51Z&amp;sp=r&amp;sv=2023-11-03&amp;sr=b&amp;rscc=max-age%3D1209600%2C%20immutable&amp;rscd=attachment%3B%20filename%3Ddefault-profile.png&amp;sig=bHefKZbsxP2EYBzCeIRhAtBzOkVydZLO1zyQuUUa6PI%3D" class="bookmark-image"/></a></figure></li></ul><ul id="fff0a874-f524-8151-b035-cc74e157284c" class="bulleted-list"><li style="list-style-type:disc">허용, 또는 항상 허용을 클릭하세요. </li></ul><ul id="fff0a874-f524-81e1-adec-ceeaf29de3f5" class="bulleted-list"><li style="list-style-type:disc">기능이 궁금하면 해당 GPTs에 어떤 일을 해줄 수 있는지 묻습니다. </li></ul><ul id="fff0a874-f524-8137-ba82-dcc7dc50fdc4" class="bulleted-list"><li style="list-style-type:disc">찾고 싶은 논문에 대해 자연어로 요청할 수 있습니다.  </li></ul></details></li></ul><ul id="8139b378-2fde-4b1b-8e7a-8669d7749ea5" class="toggle"><li><details open=""><summary>Scholar GPT </summary><ul id="10b0a874-f524-8037-a345-d8ac35eaf5c6" class="bulleted-list"><li style="list-style-type:disc">Consensus와 유사한 GPT 서비스 <figure id="10b0a874-f524-8028-9612-c26ef765a972"><a href="https://chatgpt.com/g/g-kZ0eYXlJe-scholar-gpt" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">ChatGPT - Scholar GPT</div><div class="bookmark-description">Enhance research with 200M+ resources and built-in critical reading skills. Access Google Scholar, PubMed, JSTOR, Arxiv, and more, effortlessly.</div></div><div class="bookmark-href"><img src="https://cdn.oaistatic.com/assets/apple-touch-icon-mz9nytnj.webp" class="icon bookmark-icon"/>https://chatgpt.com/g/g-kZ0eYXlJe-scholar-gpt</div></div><img src="https://files.oaiusercontent.com/file-gk3ACPm7Tvy5DHe5aE9fqJ0W?se=2123-12-19T11%3A10%3A14Z&amp;sp=r&amp;sv=2021-08-06&amp;sr=b&amp;rscc=max-age%3D1209600%2C%20immutable&amp;rscd=attachment%3B%20filename%3DFrame%2520612.png&amp;sig=dTPAPU4773Mz4PPaC6kCzsTf7ZiFgLSs/z3%2B3uGxkqY%3D" class="bookmark-image"/></a></figure></li></ul></details></li></ul><ul id="fff0a874-f524-8180-898d-ed8a7028c317" class="toggle"><li><details open=""><summary><a href="http://typeset.io">Scispace</a> : </summary><p id="fff0a874-f524-81cc-bcfa-e434dc02c963" class="">논문 전문 검색 AI. 챗GPT 유료 버전을 사용하지 않아 논문 정보 검색에 어려움이 있을 경우 Scispace를 사용하는 것이 좋습니다. </p><figure id="10b0a874-f524-8041-ac7c-fcc8c9d2b6b5"><a href="https://typeset.io/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title"></div></div><div class="bookmark-href">https://typeset.io/</div></div></a></figure></details></li></ul></div></details><p id="10b0a874-f524-80e5-bb1c-f8e926a263c5" class="block-color-red">
+</p><h2 id="3a3e30e9-2860-4f40-a22a-1bdfc9c3a3fb" class="block-color-red"><mark class="highlight-default">3. 보고서의 구조.</mark></h2><hr id="10b0a874-f524-80b0-9115-f2e294a47fe7"/><ul id="10b0a874-f524-80b1-bfbe-e774ff490630" class="bulleted-list"><li style="list-style-type:disc">AI를 활용하여 정보를 수집했다면 우리 회사에 적합한 보고서의 구조를 토대로 보고서를 자동화 합니다. <ul id="10b0a874-f524-8032-9849-c4cffda59f3f" class="bulleted-list"><li style="list-style-type:circle">소비자들의 활동과 마일리지의 연계라는 부분에 초점을 맞춰 아래와 같은 보고서의 구조를 토대로 인사이트를 도출합니다. </li></ul></li></ul><ul id="10b0a874-f524-801e-acf6-ed0167910156" class="block-color-yellow_background toggle"><li><details open=""><summary>보고서 패턴에 대한 예시 </summary><ul id="bc25e252-0846-4375-8094-53298bcf1d4a" class="bulleted-list"><li style="list-style-type:disc"><strong>소비자 인사이트 및 비즈니스 기회 도출</strong><ul id="10b0a874-f524-8048-83cf-d4e289dd7588" class="bulleted-list"><li style="list-style-type:circle">소비자 변화에 대해 그들의 행동, 가치, 트렌드를 분석하고 이를 기반으로 새로운 비즈니스 기회를 모색합니다. </li></ul></li></ul><ul id="10b0a874-f524-8024-850c-fc9557f1995a" class="bulleted-list"><li style="list-style-type:disc"><strong>소비자 관점 전환</strong><ul id="10b0a874-f524-8044-9ea0-e408bd930cde" class="bulleted-list"><li style="list-style-type:circle">소비자에 대한 고정관념이나 관점을 새롭게 전환할 필요성.  행동 패턴과 소비 성향을 재평가합니다.</li></ul></li></ul><ul id="10b0a874-f524-8038-b94b-e68103f11cc7" class="bulleted-list"><li style="list-style-type:disc"><strong>기회 심층 탐구</strong><ul id="10b0a874-f524-80aa-af24-da67c4b9258e" class="bulleted-list"><li style="list-style-type:circle">소비자 그룹의 다양한 가치와 행동을 분석하여, 비즈니스 기회를 심층적으로 탐구합니다. 주요 소비 트렌드와 기회가 구체적으로 도출되며, 그에 따른 전략 방향이 제시됩니다.</li></ul></li></ul><ul id="95064ae8-a63f-4edc-b3ff-8a3d5d0bfb05" class="bulleted-list"><li style="list-style-type:disc"><strong>서비스 아이디어 방향성</strong><ul id="10b0a874-f524-807f-adce-c514f9e766d2" class="bulleted-list"><li style="list-style-type:circle">소비자 인사이트와 도출된 기회를 바탕으로 한 서비스 또는 비즈니스 아이디어의 방향성을 제시합니다.<ul id="10b0a874-f524-8048-904d-c2378cab9e62" class="bulleted-list"><li style="list-style-type:square"><strong>관심사 기반 서비스</strong>: 우리 소비자들의 관심사를 토대로 한 기회 </li></ul><ul id="10b0a874-f524-8085-84f6-dc4cb8dcc74c" class="bulleted-list"><li style="list-style-type:square"><strong>혜택과 보상 연계</strong>: 일상적인 활동과 소비를 경제적 혜택과 연결하는 시스템 </li></ul><ul id="10b0a874-f524-80ca-b717-cb290940f6a7" class="bulleted-list"><li style="list-style-type:square"><strong>개인화된 경험 제공</strong>: 소비자들이 일상적으로 사용하는 툴과 서비스에 맞춤형 정보를 제공하여 구매나 소비로 연결될 수 있도록 지원.</li></ul></li></ul></li></ul><ul id="10b0a874-f524-80ea-9dc0-f977d58be378" class="bulleted-list"><li style="list-style-type:disc"><strong>마케팅 및 서비스 연계</strong><ul id="10b0a874-f524-803e-bdc7-e14d65f95af3" class="bulleted-list"><li style="list-style-type:circle">소비자 인사이트를 바탕으로, 서비스나 제품을 효과적으로 제공하기 위한 마케팅 전략을 구체화하고, 이를 비즈니스 목표와 연결하는 계획을 수립합니다.</li></ul></li></ul></details></li></ul><h2 id="fff0a874-f524-81df-b0f1-ec93c19673a6" class="block-color-red"><mark class="highlight-default">4. 실습</mark></h2><hr id="fff0a874-f524-818d-ab1a-cfacfafdf5fc"/><ul id="fff0a874-f524-812b-a206-c46ac83d428e" class="block-color-yellow_background bulleted-list"><li style="list-style-type:disc">대한민국의 인구 구성 변화가 우리의 비즈니스에 미치는 영향에 대한 리포트를 작성해 보세요. <ul id="03b19983-5ecf-410f-a182-dec9ab232621" class="bulleted-list"><li style="list-style-type:circle">기본적인 조사 및 작성 방법에 대해 챗GPT에 요청할 수 있습니다. <ul id="9e9cd55a-d877-43f8-8889-1143621bd54d" class="bulleted-list"><li style="list-style-type:square">프롬프트 예시) 대한민국 인구 구성 변화가 [      ]에 미치는 영향에 대한 보고서를 작성하려고 해. 이와 관련해서 조사가 필요한 내용과 이 보고서의 구조를 만들어줘.   </li></ul><ul id="10b0a874-f524-80f2-8191-d26f80cc7e1b" class="bulleted-list"><li style="list-style-type:square">퍼플렉시티나 각종 영상, 논문 등의 자료를 참고해서 보고서 양식으로 만들어 보세요</li></ul></li></ul><ul id="fff0a874-f524-81d3-9f10-e9be375cef8f" class="bulleted-list"><li style="list-style-type:circle">보고서 작성 방법 <ol type="1" id="10b0a874-f524-8055-bb0c-f8a7759f69e0" class="numbered-list" start="1"><li>노트북LM 활용 : 챗GPT가 무료일 경우 유리 (PDF 등 파일 등록이 가능하기 때문) </li></ol><ol type="1" id="10b0a874-f524-802e-9f8e-ddb597042950" class="numbered-list" start="2"><li>챗GPT 활용 : 챗GPT가 유료일 경우 직접 파일 등록을 통해 보고서를 작성 및 워드 파일로 다운로드 할 수 있습니다. </li></ol></li></ul></li></ul><p id="fff0a874-f524-8153-b7d8-d57e72e2c138" class="">
+</p><p id="fff0a874-f524-8127-ae7f-fc405716f81b" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
